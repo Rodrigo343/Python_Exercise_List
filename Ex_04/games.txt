@@ -1,0 +1,10 @@
+21;God of War;DVD;Aventura;4.0;PlayStation 3
+22;Tomb Raider;CD;Aventura;1.0;PlayStation 1
+23;Super Mario World;Digital;Aventura;1.0;Super Nintendo
+24;GTA 5;Blu-Ray;Acao;6.0;PlayStation 4
+25;Sonic;Cartucho;Aventura;1.0;Mega Drive
+26;Fortnite;Digital;FPS;2.0;X box One
+27;Pokemon Red;Cartucho;RPG;2.0;Game Boy Advance
+28;Mario Kart;Digital;Corrida;4.0;Nintendo Wii
+29;Futebol;Blu-ray;Esporte;5.0;PlayStation 5
+30;Zelda;Digital;RPG;5.0;Nintendo Swift

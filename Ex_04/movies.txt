@@ -1,0 +1,10 @@
+1;Homem de Ferro;DVD;Acao;4.0;Maiores de 12 anos;160
+2;Corra que a policia vem ai;DVD;Comedia;3.0;Maiores de 14 anos;100
+3;Os outros;DVD;Suspense;3.0;Maiores de 14 anos;90
+4;Jurassic Park;Blu-ray;Aventura;4.0;Maiores de 12 anos;120
+5;Vingadores;Blu-ray;Acao;5.0;Maiores de 12 anos;160
+6;Invocacao do mal;DVD;Terror;3.0;Maiores de 16 anos;100
+7;A culpa eh das estrelas;DVD;Romance;3.0;Livre;90
+8;Guardiao das Galaxias;Blu-ray;Acao;4.0;Maiores de 12 anos;120
+9;Senhor dos Aneis;Blu-ray;Aventura;4.0;Maiores de 12 anos;160
+10;Matrix;DVD;Acao;3.0;Maiores de 12 anos;120
