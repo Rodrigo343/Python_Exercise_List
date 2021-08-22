@@ -1,0 +1,5 @@
+Pombo;Pássaro;Marrom
+Borboleta;Inseto;Violeta
+Abelha;Inseto;Amarelo
+Gavião;Pássaro;Vermelho
+Morcego;Mamífero;Rocho

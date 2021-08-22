@@ -1,0 +1,5 @@
+Tartaruga;Réptil;true
+Pato;Ave;true
+Sapo;Anfíbio;true
+Polvo;Molusco;false
+Lontra;Mamífero;true

@@ -13,37 +13,37 @@ class rentalCompany():
         
         while(option != 4):
         
-            print("\n----Select a media to rent----");
-            print("1- Movie");
-            print("2- Book");
-            print("3- Game");
-            print("4- Back");
+            print("\n----Select a media to rent----")
+            print("1- Movie")
+            print("2- Book")
+            print("3- Game")
+            print("4- Back")
             option = int(input("Select a option: "))
     
             if option == 1:           
-                mediaOption = rentalCompany.selectMedia(1);
-                costumerOption = rentalCompany.selectCostumer();
+                mediaOption = rentalCompany.selectMedia(1)
+                costumerOption = rentalCompany.selectCostumer()
                 rentalCompany.addRent(mediaOption, costumerOption)
                  
             elif option == 2:
-                mediaOption = rentalCompany.selectMedia(2);
-                costumerOption = rentalCompany.selectCostumer();
+                mediaOption = rentalCompany.selectMedia(2)
+                costumerOption = rentalCompany.selectCostumer()
                 rentalCompany.addRent(mediaOption, costumerOption)
                 
             elif option == 3:
-                mediaOption = rentalCompany.selectMedia(3);
-                costumerOption = rentalCompany.selectCostumer();
+                mediaOption = rentalCompany.selectMedia(3)
+                costumerOption = rentalCompany.selectCostumer()
                 rentalCompany.addRent(mediaOption, costumerOption)
 
             elif option == 4:
-                break;
+                break
                 
             else:
                 print("\nInvalid Option")
     
     """def to show and select the media """
     def selectMedia(optionMedia):   
-        print("\n---- Medias Available ----");
+        print("\n---- Medias Available ----")
         for i in medias:
             if isinstance(i, media.Movie) and optionMedia == 1:
                 if (i.rented is not True):
@@ -61,7 +61,7 @@ class rentalCompany():
     
     """def to show and select  a costumer"""
     def selectCostumer():    
-        print("\n---- CLientes ----");
+        print("\n---- CLientes ----")
         for i in costumers:
             print("\n{0}".format(i))  
         
@@ -71,7 +71,7 @@ class rentalCompany():
     def selectRent():    
         j = 0
         
-        print("\n---- Costumers ----");
+        print("\n---- Costumers ----")
         for i in rents:
             j  += 1
             print("\nId:{0}\n{1} ".format(j, i))  
@@ -84,7 +84,7 @@ class rentalCompany():
         resp = input("Do you want pay now? (y/n) ")
         
         if(resp == "y"):
-            print("You need to pay {0} dollars".format(medias[mediaOption].price));
+            print("You need to pay {0} dollars".format(medias[mediaOption].price))
             paid = True
             
         medias[mediaOption].rented = True
@@ -201,7 +201,7 @@ def main():
                 selectRent = rentalCompany.selectRent()
                 
                 if (rents[selectRent].paid is not True):
-                    print("You need to pay {0} dollars".format(rents[selectRent].media.price));
+                    print("You need to pay {0} dollars".format(rents[selectRent].media.price))
                     rents.pop(selectRent)
                     
                 else:

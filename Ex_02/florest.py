@@ -90,7 +90,7 @@ def main():
             Florest.plantByType()
 
         elif option == 7:
-            break;
+            break
             
         else:
             print("\nInvalid Option")

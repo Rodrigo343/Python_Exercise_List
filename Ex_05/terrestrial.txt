@@ -1,0 +1,5 @@
+Lagarto;Réptil;4
+Rato;Mamífero;4
+Cobra;Réptil;0
+Tatu;Mamífero;4
+Raposa;Mamífero;4
