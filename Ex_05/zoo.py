@@ -3,21 +3,21 @@ import habitats
 
 class Zoo():
         
-    """Menu to select a Media to rent"""
+    """Menu to add an animal and select a habitat"""
     def menu():
         option = 0
         
         while(option != 4):
         
-            print("\n----Qual animal deseja adicionar----")
-            print("1- Voador")
-            print("2- Terrestre")
-            print("3- Aquatico")
-            print("4- Voltar")
+            print("\n----Add Animal----")
+            print("1- Aerial")
+            print("2- Terrestrial")
+            print("3- Aquatic")
+            print("4- Back")
             option = int(input("Select a option: "))
     
             if option == 1:                  
-                print("\n----Cadastro Voador ----")
+                print("\n----Add Aerial ----")
                 name = input("Name: ")
                 specie = input("Specie: ")
                 featherColor = input("Feather Color: ")
@@ -25,7 +25,7 @@ class Zoo():
                 Zoo.selectHabitat(animal)
                  
             elif option == 2:
-                print("\n----Cadastro Terrestre ----")
+                print("\n----Add Terrestrial ----")
                 name = input("Name: ")
                 specie = input("Specie: ")
                 pawsQuantity = int(input("Paws Quantity: "))
@@ -33,7 +33,7 @@ class Zoo():
                 Zoo.selectHabitat(animal)
                 
             elif option == 3:
-                print("\n----Cadastro Aquatico ----")
+                print("\n----Add Aquatic ----")
                 name = input("Name: ")
                 specie = input("Specie: ")
                 amphibian = ("y" == input("Amphibian? (y/n): ").lower())
@@ -46,7 +46,7 @@ class Zoo():
             else:
                 print("\nInvalid Option")
     
-    """Def  """                  
+    """Def to list animals by habitat"""                  
     def listAnimalsByHabitat():
         animalsHabitat = ""
         animalsHabitat += ("Vivarium: {0}".format(vivarium.animals))
@@ -57,35 +57,35 @@ class Zoo():
         
         return animalsHabitat
         
-    """Def  """                  
+    """Def to count animals in zoo """                  
     def animalsInZoo():
         animalsQuantity = (vivarium.animalsQuantity() + lake.animalsQuantity() + coop.animalsQuantity() +
                            aquarium.animalsQuantity() + cage.animalsQuantity())
         
         return ("{0} Animals live in zoo".format(animalsQuantity))
 
-    """Def """                  
+    """Def to sum aerial animals"""                  
     def sumAerial():
         aerialTotal = (vivarium.aerialQuantity() + lake.aerialQuantity() + coop.aerialQuantity() +
                        aquarium.aerialQuantity() + cage.aerialQuantity())
         
         return ("{0} Aerials animals live in zoo".format(aerialTotal))
     
-    """Def """                  
+    """Def to sum terrestrial animals """                  
     def sumTerrestrial():
         terrestrialTotal = (vivarium.terrestrialQuantity() + lake.terrestrialQuantity() + coop.terrestrialQuantity() + 
                        aquarium.terrestrialQuantity() + cage.terrestrialQuantity())
         
         return ("{0} Terrestrials animals live in zoo".format(terrestrialTotal))
     
-    """Def """                  
+    """Def to sum aquatic animals"""                  
     def sumAquatic():
         aquaticTotal = (vivarium.aquaticQuantity() + lake.aquaticQuantity() + coop.aquaticQuantity() +
                        aquarium.aquaticQuantity() + cage.aquaticQuantity())
         
         return ("{0} Aquatic animals live in zoo".format(aquaticTotal))
     
-    """Def """                  
+    """Def to count animals in habitat"""                  
     def countAnimalsInHabitat():
         totalAnimalsHabitat = ""
         
@@ -97,14 +97,14 @@ class Zoo():
         
         return totalAnimalsHabitat
     
-    """Def """                  
+    """Def to show the total area of habitats """                  
     def totalAreaHabitat():
         totalArea = (vivarium.area + lake.area + coop.area + 
                        aquarium.area + cage.area)
         
         return ("{0} total habitat area".format(totalArea))
     
-    """Def """        
+    """Def to select an habitat"""        
     def selectHabitat(animal):
         option = 0
         
@@ -134,7 +134,7 @@ class Zoo():
         else:
             print("\nInvalid Option")     
         
-    """Def  """                  
+    """Def to add aerial animal"""                  
     def addAerial():
         with open('aerial.txt', mode = 'r') as aerials:
             file = aerials.read()
@@ -150,7 +150,7 @@ class Zoo():
                 animal = animals.Aerial(name, specie, featherColor)
                 vivarium.animals = animal
                 
-    """Def  """                  
+    """Def to add terrestrial animal"""                  
     def addTerrestrial():
         with open('terrestrial.txt', mode = 'r') as terrestrials:
             file = terrestrials.read()
@@ -166,7 +166,7 @@ class Zoo():
                 animal = animals.Terrestrial(name, specie, pawsQuantity)
                 cage.animals = animal
     
-    """Def  """                  
+    """Def to add aquatic animal"""                  
     def addAquatic():
         with open('aquatic.txt', mode = 'r') as aquatics:
             file = aquatics.read()
@@ -205,12 +205,12 @@ def main():
     while(option != 7):
         
         print("\n----Options----")
-        print("1- Cadastrar Animal")
-        print("2- Listar Animais")
-        print("3- Quantidade de Animais no zoologio")
-        print("4- Quantidade de animais no zoologico por tipo")
-        print("5- Quantidade de animais no zoologico por habitat")
-        print("6- Area total que os animais ocupam")
+        print("1- Add Animal")
+        print("2- List Animals")
+        print("3- Animals quantity in zoo")
+        print("4- Animals quantity in zoo by type")
+        print("5- Animals quantity in zoo by habitat")
+        print("6- Total Habitat area")
         print("7- Sair")
         option = int(input("Select a option: "))
         

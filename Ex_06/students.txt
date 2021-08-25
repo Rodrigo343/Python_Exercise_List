@@ -1,0 +1,5 @@
+jose;16;medio;300
+maria;3;infantil;150
+arnaldo;7;fundamental;200
+joao;15;medio;360.50
+jorge;2;infantil;500

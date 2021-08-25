@@ -1,0 +1,5 @@
+anderson;70;hitoria;geografia;1000
+regina;22;matematica;geometria;1500
+alex37;34;biologia;ciencias;4000
+mario;34;historia;portugues;1500.77
+jorge;55;hitoria;geografia;3000

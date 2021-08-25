@@ -30,9 +30,11 @@ class Habitat():
     def animals(self, animal):
         self.__animals.append(animal)
         
+    """Def to return total animals quantity in habitat"""
     def animalsQuantity(self):
         return len(self.__animals)
     
+    """Def to return total aeria animals quantity in habitat"""
     def aerialQuantity(self):
         i = 0
         for animal in self.__animals:
@@ -40,6 +42,7 @@ class Habitat():
                 i += 1     
         return i
     
+    """Def to return total terrestrial animals quantity in habitat"""
     def terrestrialQuantity(self):
         i = 0
         for animal in self.__animals:
@@ -47,6 +50,7 @@ class Habitat():
                 i += 1     
         return i
     
+    """Def to return total aquatic animals quantity in habitat"""
     def aquaticQuantity(self):
         i = 0
         for animal in self.__animals:
