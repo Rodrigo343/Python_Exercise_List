@@ -1,8 +1,21 @@
 import plant
+from exception import ExceptionTest
 
 class Florest():
     
-
+    """def to verify and validate input """
+    def testExceptionInt(message):
+        exceptionConfirm = True
+                
+        while (exceptionConfirm):
+            test = input(message)
+            
+            if(ExceptionTest.exceptionInt(test)): 
+                test = int(test)
+                exceptionConfirm = False 
+                return test  
+    
+    """Add a Tree"""
     def addTree():
         print("\n---- Tree registration ----")
         name = input("Name: ")
@@ -10,7 +23,8 @@ class Florest():
         characteristicBool = ("y" == input("Fructiferous? (y/n): ").lower())
         
         florest.append(plant.Tree(name, specie, characteristicBool))   
-            
+       
+    """Add a Flower"""    
     def addFlower():
         print("\n---- Flower registration ----")
         name = input("Name: ")
@@ -18,7 +32,8 @@ class Florest():
         characteristicString = input("Color: ")
         
         florest.append(plant.Flower(name, specie, characteristicString))
-        
+     
+    """Add a Carnivorous plant"""    
     def addCarnivore():
         print("\n---- Carnivorous Plant registration ----")
         name = input("Name: ")
@@ -27,6 +42,7 @@ class Florest():
         
         florest.append(plant.Carnivore(name, specie, characteristicBool))
 
+    """List Plants by type"""
     def plantByType():
         tree = 0
         flower = 0
@@ -68,7 +84,7 @@ def main():
         print("5- Number of existing plants")
         print("6- Number of existing plants by type")
         print("7- Exit")
-        option = int(input("Select a option: "))
+        option = Florest.testExceptionInt("Select a option: ")
 
         if option == 1:
             Florest.addTree()

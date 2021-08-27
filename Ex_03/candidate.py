@@ -10,7 +10,10 @@ class Candidate():
     
     @name.setter  
     def name(self, name):
-        self.__name = name
+        if(len(name) > 3):
+            self.__name = name
+        else:
+            self.__name = "Generic"
         
     @property  
     def age(self):
@@ -18,7 +21,10 @@ class Candidate():
     
     @age.setter  
     def age(self, age):
-        self.__age = age
+        if age >= 18:
+            self.__age = age
+        else:
+            self.__age = 18
 
     def __str__(self):        
         return "Name:{0}\nAge: {1}".format(self.name, self.age)
@@ -35,7 +41,10 @@ class Employee(Candidate):
     
     @company.setter  
     def company(self, company):
-        self.__company = company
+        if(len(company) > 3):
+            self.__company = company
+        else:
+            self.__company = "Generic"
         
     def __str__(self):
         return super().__str__() + "\nCompany: {0}".format(self.company)          

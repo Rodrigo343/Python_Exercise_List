@@ -1,15 +1,40 @@
 import person
 import classroom
+from exception import ExceptionTest
 
 class School():
 
+    """def to verify and validate int input """
+    def testExceptionInt(message):
+        exceptionConfirm = True
+                
+        while (exceptionConfirm):
+            test = input(message)
+            
+            if(ExceptionTest.exceptionInt(test)): 
+                test = int(test)
+                exceptionConfirm = False 
+                return test  
+            
+    """def to verify and validate float input """
+    def testExceptionFloat(message):
+        exceptionConfirm = True
+                
+        while (exceptionConfirm):
+            test = input(message)
+            
+            if(ExceptionTest.exceptionFloat(test)): 
+                test = float(test)
+                exceptionConfirm = False 
+                return test  
+            
     """def to add a student""" 
     def addStudent():    
         print("\n----Add Student ----")
         name = input("Name: ")
-        age = int(input("Age: "))
+        age = School.testExceptionInt("Age: ")
         course = input("Course: ")
-        monthlyPayment = float(input("Monthly Payment Value:"))
+        monthlyPayment = School.testExceptionFloat("Monthly Payment Value: ")
         student =  person.Student(name, age, course, monthlyPayment)
         students.append(student)
 
@@ -19,14 +44,18 @@ class School():
         
         print("\n----Add Professor ----")
         name = input("Name: ")
-        age = int(input("Age: "))
+        age = School.testExceptionInt("Age: ")
         
-        quantity = int(input("Quantity of School Subject: "))
+        quantity = School.testExceptionInt("Quantity of School Subject: ")
         
         for i in range(quantity):
-            schoolSubjectList.append(input("School Subject Name: "))
+            schoolSubject = input("School Subject Name: ")
+            if (schoolSubject and len(schoolSubject) > 3): 
+                schoolSubjectList.append(schoolSubject)
+            else:
+                print("This School Subject won't added")
         
-        salary = float(input("Monthly Payment Value:"))
+        salary = School.testExceptionFloat("Monthly Payment Value: ")
         professor =  person.Professor(name, age, schoolSubjectList, salary)
         professors.append(professor)
 
@@ -38,18 +67,27 @@ class School():
         name = input("Name: ")
         
         School.listProfessors()
-        professor = (int(input("Select a Professor: ")) - 1)
-        peopleList.append( professors[professor] )
+        professor = School.testExceptionInt("Select a Professor: ")
+        professor -= 1
+        if(professor > len(professors) or professor == -1):
+            return print("\nInvalid option, the classroom won't be added")
+        else:  
+            peopleList.append( professors[professor] )
         
-        quantity = int(input("Quantity of Students in classroom: "))
+        quantity = School.testExceptionInt("Quantity of Students in classroom: ")
         
         School.listStudents()
         for i in range(quantity):
-            student = (int(input("Select a Student: ")) - 1)
-            peopleList.append( students[student] )
+            student = School.testExceptionInt("Select a Student: ")
+            professor -= 1
+            if(student > len(students) or student == -1):
+                return print("\nInvalid option, the classroom won't be added")
+            else:  
+                peopleList.append( professors[professor] )
         
         classroomAdd = classroom.Classroom(name, peopleList)
         classrooms.append(classroomAdd)
+        return print("\nClassRoom Added")
             
     """def  to list students""" 
     def listStudents():    
@@ -174,7 +212,7 @@ def main():
         print("6- List Classrooms")
         print("7- List School Profit")
         print("8- Exit")
-        option = int(input("Select a option: "))
+        option = School.testExceptionInt("Select a option: ")
 
         if option == 1:
             School.addStudent()

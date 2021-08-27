@@ -10,7 +10,10 @@ class Plant():
     
     @name.setter  
     def name(self, name):
-        self.__name = name
+        if(len(name) > 3):
+            self.__name = name
+        else:
+            self.__name = "Generic"
         
     @property  
     def specie(self):
@@ -18,10 +21,13 @@ class Plant():
     
     @specie.setter  
     def specie(self, specie):
-        self.__specie = specie
+        if(len(specie) > 3):
+            self.__specie = specie
+        else:
+            self.__specie = "Generic"
 
     def __str__(self):        
-        return "Name:{0}\nSpecie {1}".format(self.name, self.specie)
+        return "Name:{0}\nSpecie: {1}".format(self.name, self.specie)
     
     
 class Tree(Plant):
@@ -72,7 +78,10 @@ class Flower(Plant):
     
     @color.setter  
     def color(self, color):
-        self.__color = color
+        if(len(color) > 3):
+            self.__color = color
+        else:
+            self.__color = "Generic"
         
     def __str__(self):
         return super().__str__() + "\nColor: {0}".format(self.color)     

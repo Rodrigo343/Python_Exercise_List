@@ -1,8 +1,21 @@
 import animals
 import habitats
+from exception import ExceptionTest
 
 class Zoo():
         
+    """def to verify and validate int input """
+    def testExceptionInt(message):
+        exceptionConfirm = True
+                
+        while (exceptionConfirm):
+            test = input(message)
+            
+            if(ExceptionTest.exceptionInt(test)): 
+                test = int(test)
+                exceptionConfirm = False 
+                return test  
+            
     """Menu to add an animal and select a habitat"""
     def menu():
         option = 0
@@ -14,7 +27,7 @@ class Zoo():
             print("2- Terrestrial")
             print("3- Aquatic")
             print("4- Back")
-            option = int(input("Select a option: "))
+            option = Zoo.testExceptionInt("Select a option: ")
     
             if option == 1:                  
                 print("\n----Add Aerial ----")
@@ -28,7 +41,7 @@ class Zoo():
                 print("\n----Add Terrestrial ----")
                 name = input("Name: ")
                 specie = input("Specie: ")
-                pawsQuantity = int(input("Paws Quantity: "))
+                pawsQuantity = Zoo.testExceptionInt("Paws Quantity: ")
                 animal = animals.Terrestrial(name, specie, pawsQuantity)
                 Zoo.selectHabitat(animal)
                 
@@ -114,8 +127,8 @@ class Zoo():
         print("3- Coop")
         print("4- Aquarium")
         print("5- Cage")
-        option = int(input("Select a option: "))
-        
+        option = Zoo.testExceptionInt("Select a option: ")
+
         if option == 1:
             vivarium.animals = animal
             
@@ -212,7 +225,7 @@ def main():
         print("5- Animals quantity in zoo by habitat")
         print("6- Total Habitat area")
         print("7- Sair")
-        option = int(input("Select a option: "))
+        option = Zoo.testExceptionInt("Select a option: ")
         
         if option == 1:
             Zoo.menu()

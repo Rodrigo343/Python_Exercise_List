@@ -11,7 +11,10 @@ class JobOpportunity():
     
     @description.setter  
     def description(self, description):
-        self.__description = description
+        if(len(description) > 3):
+            self.__description = description
+        else:
+            self.__description = "Generic"
         
     @property  
     def salary(self):

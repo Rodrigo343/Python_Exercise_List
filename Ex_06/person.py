@@ -10,7 +10,10 @@ class Person():
     
     @name.setter  
     def name(self, name):
-        self.__name = name
+        if(len(name) > 3):
+            self.__name = name
+        else:
+            self.__name = "Generic"
         
     @property  
     def age(self):
@@ -37,7 +40,10 @@ class Student(Person):
     
     @course.setter  
     def course(self, course):
-        self.__course = course
+        if(len(course) > 3):
+            self.__course = course
+        else:
+            self.__course = "Generic"
         
     @property  
     def monthlyPayment(self):

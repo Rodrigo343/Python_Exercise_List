@@ -1,9 +1,22 @@
 import media
 import costumer
 import rent
+from exception import ExceptionTest
 
 class rentalCompany():
         
+    """def to verify and validate int input """
+    def testExceptionInt(message):
+        exceptionConfirm = True
+                
+        while (exceptionConfirm):
+            test = input(message)
+            
+            if(ExceptionTest.exceptionInt(test)): 
+                test = int(test)
+                exceptionConfirm = False 
+                return test  
+            
     """Menu to select a Media to rent"""
     def menuMedia():
         option = 0
@@ -18,22 +31,33 @@ class rentalCompany():
             print("2- Book")
             print("3- Game")
             print("4- Back")
-            option = int(input("Select a option: "))
+            option = rentalCompany.testExceptionInt("Select a option: ")
     
             if option == 1:           
                 mediaOption = rentalCompany.selectMedia(1)
                 costumerOption = rentalCompany.selectCostumer()
-                rentalCompany.addRent(mediaOption, costumerOption)
+                print("{0} {1}".format(mediaOption, costumerOption))
+                if (mediaOption <= 10 and costumerOption < len(costumers) and mediaOption != -1 and costumerOption != -1):
+                    rentalCompany.addRent(mediaOption, costumerOption)
+                else:
+                    print("\nInvalid option in medias or costumers list")
                  
             elif option == 2:
                 mediaOption = rentalCompany.selectMedia(2)
                 costumerOption = rentalCompany.selectCostumer()
-                rentalCompany.addRent(mediaOption, costumerOption)
+                if (mediaOption <= 20 and mediaOption >= 11 and costumerOption < len(costumers) and mediaOption != -1 and costumerOption != -1):
+                    rentalCompany.addRent(mediaOption, costumerOption)
+                else:
+                    print("\nInvalid option in medias or costumers list")
                 
             elif option == 3:
                 mediaOption = rentalCompany.selectMedia(3)
                 costumerOption = rentalCompany.selectCostumer()
-                rentalCompany.addRent(mediaOption, costumerOption)
+                if (mediaOption <= 30 and mediaOption >= 21 and costumerOption < len(costumers) and mediaOption != -1 and costumerOption != -1):
+                    rentalCompany.addRent(mediaOption, costumerOption)
+                else:
+                    print("\nInvalid option in medias or costumers list")
+                
 
             elif option == 4:
                 break
@@ -56,8 +80,9 @@ class rentalCompany():
             elif isinstance(i, media.Game) and optionMedia == 3:
                 if (i.rented is not True):
                     print("\n{0}".format(i))
-                          
-        return (int(input("\nSelect a option: ")) - 1)
+                
+        selectedMedia = rentalCompany.testExceptionInt("Select a option: ")
+        return (selectedMedia - 1)
     
     """def to show and select  a costumer"""
     def selectCostumer():    
@@ -65,7 +90,8 @@ class rentalCompany():
         for i in costumers:
             print("\n{0}".format(i))  
         
-        return (int(input("\nSelect a option: ")) - 1)
+        selectedMedia = rentalCompany.testExceptionInt("Select a option: ")
+        return (selectedMedia - 1)
          
     """def to show and select a rent"""
     def selectRent():    
@@ -76,9 +102,10 @@ class rentalCompany():
             j  += 1
             print("\nId:{0}\n{1} ".format(j, i))  
             
-        return (int(input("\nSelect a option: ")) - 1)
-                                              
-    """Def to add a rent in the list"""
+        selectedRent = (rentalCompany.testExceptionInt("Select a option: ") - 1) 
+        return selectedRent 
+        
+    """Def to verify -1 position in lists"""
     def addRent(mediaOption, costumerOption):
         paid = False
         resp = input("Do you want pay now? (y/n) ")
@@ -186,7 +213,7 @@ def main():
         print("1- Rent a media")
         print("2- Return a media")
         print("3- Exit")
-        option = int(input("Select a option: "))
+        option = rentalCompany.testExceptionInt("Select a option: ")
 
         if option == 1:
              rentalCompany.menuMedia()
@@ -200,14 +227,18 @@ def main():
                 print("\nSelect a rent to return")
                 selectRent = rentalCompany.selectRent()
                 
-                if (rents[selectRent].paid is not True):
+                if(selectRent == -1):
+                    print("Invalid Option")
+
+                elif (rents[selectRent].paid is not True and selectRent != 0):
                     print("You need to pay {0} dollars".format(rents[selectRent].media.price))
                     rents.pop(selectRent)
-                    
+                    print("thank you for the preference!")
+                     
                 else:
-                     rents.pop(selectRent)
+                    rents.pop(selectRent)
+                    print("thank you for the preference!")
                     
-                print("thank you for the preference!")
             
         elif option == 3:
             break

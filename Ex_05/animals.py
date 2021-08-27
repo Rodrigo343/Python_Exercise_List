@@ -10,15 +10,21 @@ class Animal():
     
     @name.setter  
     def name(self, name):
-        self.__name = name
-        
+        if(len(name) > 3):
+            self.__name = name
+        else:
+            self.__name = "Generic"
+
     @property  
     def specie(self):
         return self.__specie
     
     @specie.setter  
     def specie(self, specie):
-        self.__specie = specie
+        if(len(specie) > 3):
+            self.__specie = specie
+        else:
+            self.__specie = "Generic"
 
     def __str__(self):        
         return "Name:{0}\nSpecie {1}".format(self.name, self.specie)
@@ -35,7 +41,10 @@ class Aerial(Animal):
     
     @featherColor.setter  
     def featherColor(self, featherColor):
-        self.__featherColor = featherColor
+        if(len(featherColor) > 3):
+            self.__featherColor = featherColor
+        else:
+            self.__featherColor = "Generic"
         
     def __str__(self):
         return super().__str__() + "\nFeather Color: {0}".format(self.featherColor)          

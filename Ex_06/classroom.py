@@ -12,7 +12,10 @@ class Classroom():
     
     @name.setter  
     def name(self, name):
-        self.__name = name
+        if(len(name) > 3):
+            self.__name = name
+        else:
+            self.__name = "Generic"
 
     @property  
     def people(self):         

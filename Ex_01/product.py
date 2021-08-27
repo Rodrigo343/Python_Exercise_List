@@ -21,11 +21,8 @@ class Product(Order):
         for i in range(self.__quantity):
             
             if self.__limit == 100: break
-        
-            if (option < 1 or option > 4):
-                print("Invalid Option")    
-                
-            elif option == 1:
+
+            if option == 1:
                 Order.updeteOrder(self, Candy())
             
             elif option == 2:
